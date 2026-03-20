@@ -27,7 +27,7 @@ public class ProdutoController {
     public ResponseEntity<ProdutoModel> criarProduto(@RequestBody ProdutoModel produtoModel){
         ProdutoModel request = produtoService.criarProduto(produtoModel);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
-                .path("{/id}").buildAndExpand(produtoModel.getId())
+                .path("/{id}").buildAndExpand(produtoModel.getId())
                 .toUri();
         return ResponseEntity.created(uri).body(request);
     }
